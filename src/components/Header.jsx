@@ -8,11 +8,11 @@ const Header = () => {
 
       <p className='bg-[#49B9FF]/50 px-5 rounded-full py-1 mt-20'>The ultimate hotel experience</p>
       <h1 className='font-playfair mt-5 text-2xl md:text-5xl md:text-[56px] md:leading-[56px] font-bold md:font-extrabold max-w-xl '>Discover Your perfect getaway destinations</h1>
-      <p className='mt-3.5 text-sm md:text-base max-w-130 mb-7'>Unparalleled luxury and comfort await at the world's most exclusive hotels
+      <p className='mt-3.5 text-sm md:text-base max-w-130'>Unparalleled luxury and comfort await at the world's most exclusive hotels
         and resorts. Explore our curated collection of the finest accommodations,
         where every detail is designed to provide an unforgettable experience.
       </p>
-      <form className='bg-white text-gray-500 rounded-lg px-6 py-4  flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
+      <form className='bg-white text-gray-500 rounded-lg px-6 py-4 mt-7 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
 
             <div>
                 <div className='flex items-center gap-2'>
@@ -24,9 +24,7 @@ const Header = () => {
 
             <div>
                 <div className='flex items-center gap-2'>
-                    <svg className="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                    </svg>
+                    <img src="/assets/calenderIcon.svg" alt="" className='h-4'/>
                     <label htmlFor="checkIn">Check in</label>
                 </div>
                 <input id="checkIn" type="date" className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none" />
@@ -34,9 +32,7 @@ const Header = () => {
 
             <div>
                 <div className='flex items-center gap-2'>
-                    <svg className="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                    </svg>
+                    <img src="/assets/calenderIcon.svg" alt="" className='h-4'/>
                     <label htmlFor="checkOut">Check out</label>
                 </div>
                 <input id="checkOut" type="date" className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none" />

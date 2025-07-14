@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import { useUser, useClerk, UserButton } from '@clerk/clerk-react';
 
 // PrebuiltUI.com
 const Navbar = () => {
@@ -11,6 +12,9 @@ const Navbar = () => {
 
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    const {openSignIn} = useClerk();
+    const {user} = useUser();
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -25,7 +29,7 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-2">
-                    <img src={"/assets/logo.svg"} alt="logo" className={`h-9 ${isScrolled && "invert opacity-80"}`} />
+                    <img src="/assets/logo.svg" alt="logo" className={`h-9 ${isScrolled && "invert opacity-80"}`} />
                 </a>
 
                 {/* Desktop Nav */}
@@ -44,7 +48,7 @@ const Navbar = () => {
                         <circle cx="11" cy="11" r="8" />
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     </svg>
-                    <button className={`px-8 py-2.5 rounded-full ml-4 transition-all duration-500 ${isScrolled ? "text-white bg-black" : "bg-white text-black"}`}>
+                    <button onClick={openSignIn} className={`px-8 py-2.5 rounded-full ml-4 transition-all duration-500 ${isScrolled ? "text-white bg-black" : "bg-white text-black"}`}>
                         Login
                     </button>
                 </div>
@@ -73,7 +77,7 @@ const Navbar = () => {
                         </a>
                     ))}
 
-                    <button className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
+                    <button onClick={openSignIn} className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
                         Login
                     </button>
                 </div>
