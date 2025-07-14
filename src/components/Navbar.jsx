@@ -71,6 +71,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Button */}
+
                 <div className="flex items-center gap-3 md:hidden">
                     <svg onClick={() => setIsMenuOpen(!isMenuOpen)} className={`h-6 w-6 cursor-pointer ${isScrolled ? "invert" : ""}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <line x1="4" y1="6" x2="20" y2="6" />
@@ -88,15 +89,21 @@ const Navbar = () => {
                         </svg>
                     </button>
 
+                    {user && (<UserButton>
+                        <UserButton.MenuItems>
+                            <UserButton.Action label="My Bookings" labelIcon={<BookIcon/>} onClick={()=>navigate('/')}/>
+                        </UserButton.MenuItems>
+                    </UserButton>)}
+
                     {navLinks.map((link, i) => (
                         <a key={i} href={link.path} onClick={() => setIsMenuOpen(false)}>
                             {link.name}
                         </a>
                     ))}
 
-                    <button onClick={openSignIn} className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
+                    {!user && <button onClick={openSignIn} className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
                         Login
-                    </button>
+                    </button>}
                 </div>
             </nav>
     );
