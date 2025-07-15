@@ -15,6 +15,13 @@ const FeaturedDestinations = () => {
             <HotelCard key={room._id} room={room} index={index}/>
         ))}
       </div>
+      <button>
+        <a href="/rooms" onClick={()=>scrollTo(0,0)} className='
+        my-16 px-4 py-2 text-sm font-medium border border-gray-300
+        rounded bg-white hover:bg-gray-50 transition-all cursor-pointer'>
+          View all destinations
+        </a>
+      </button>
     </div>
   )
 }
