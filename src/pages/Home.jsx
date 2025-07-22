@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import FeaturedDestinations from '../components/FeaturedDestinations'
 import ExclusiveOffers from '../components/ExclusiveOffers'
+import Testimonials from '../components/Testimonials'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Header/>
       <FeaturedDestinations/>
       <ExclusiveOffers/>
+      <Testimonials/>
     </>
   )
 }
