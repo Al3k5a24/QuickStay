@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import React, { use, useState } from 'react'
 import Footer from '../components/Footer'
 import { assets, facilityIcons, roomsDummyData } from '../../assets/assets'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -6,6 +6,8 @@ import Ratings from '../components/Ratings'
 
 const Rooms = () => {
 const navigate=useNavigate();
+const [openFilters,setOpenFilters]=useState(false);
+
   return (
 
     <div className='flex flex-col-reverse lg:flex-row
@@ -60,13 +62,23 @@ const navigate=useNavigate();
       {/* Filters */}
       <div className='bg-white w-80 border border-gray-300 text-gray-600
       max-lg:lb-8 min-lg:mt-16'>
-        <div>
+        <div className={`flex items-center justify-between px-5 py-2.5
+            min-lg:border-b border-b border-gray-300 ${openFilters && "border-b"}`}>
             <p className='text-base font-medium text-gray-800'>FILTERS</p>
             <div className='text-xs cursor-pointer'>
-                <span className='lg:hidden'>HIDE</span>
+                <span onClick={()=>setOpenFilters(true)} className='lg:hidden'>
+                    {openFilters ? 'HIDE' : 'SHOW'}</span>
                 <span className='hidden lg:block'>CLEAR</span>
             </div>
         </div>
+
+        <div className={`${openFilters ? 'h-auto' : 'h-0 lg:h-auto'}
+             overflow-hidden transition-all duration-700 ease-in-out`}>
+                <div className='px-5 pt-5'>
+                    <p className='font-medium text-gray-800 pb-2'>Popular filters</p>
+                </div>
+        </div>
+
       </div>
     </div>
   )
