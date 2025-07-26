@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { assets, facilityIcons, roomsDummyData } from '../../assets/assets';
+import { assets, facilityIcons, roomCommonData, roomsDummyData } from '../../assets/assets';
 import Ratings from '../components/Ratings';
+import Footer from '../components/Footer';
 
 const RoomDetails = () => {
     const {id}=useParams();
@@ -107,7 +108,44 @@ const RoomDetails = () => {
             </button>
 
         </form>
+
+        {/* Common Specification */}
+            <div className='mt-25 space-y-4'>
+                {roomCommonData.map((spec,index)=>(
+                    <div key={index} className='flex items-start gap-2'>
+                        <img src={spec.icon} alt={`${spec.title}-icon`} 
+                        className='w-6.5'/>
+                        <div>
+                            <p className='text-base'>{spec.title}</p>
+                            <p className='text-gray-500'>{spec.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className='max-w-3x1 border-y border-gray-300 my-15 py-10 text-gray-500'>
+                <p>Guests will be alocated on the ground floor according to availability.
+                You get a comfortable 2 bedroom apartment that has a true city feeling. The price quoted is for 2 guests, 
+                at the guest slot please mark the number of guests to get the exact price fror groups. 
+                </p>
+            </div>
+
+            {/* Hosted by*/}
+            <div className='flex flex-col items-start gap-4'>
+                <div className='flex gap-4'>
+                    <img src="/vite.svg" alt="Host" 
+                    className='h-14 w-14 md:h-18 md:w-18 rounded-full'/>
+                    <div>
+                        <p className='text-lg md:text-xl'>Hosted by {room.hotel.name}</p>
+                        <div className='flex items-center mt-1'>
+                            <Ratings/>
+                            <p className='ml-2'>200+ reviews</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
+
   )
 }
 
