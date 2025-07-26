@@ -3,19 +3,63 @@ import Footer from '../components/Footer'
 import { assets, facilityIcons, roomsDummyData } from '../../assets/assets'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Ratings from '../components/Ratings'
+import Navbar from '../components/Navbar'
+
+{/*Checkbox za filtere*/}
+const CheckBox=({label, selected=false, onChange=()=>{}})=>{
+    return (
+        <label className='flex gap-3 items-center 
+        cursor-pointer mt-2 text-sm'>
+            <input type="checkBox" checked={selected} 
+            onChange={(e)=>onChange(e.target.checked, label)}/>
+            <span className='font-light select-none'>{label}</span>
+        </label>
+    )
+}
+
+const RadioBtn=({label, selected=false, onChange=()=>{}})=>{
+    return (
+        <label className='flex gap-3 items-center 
+        cursor-pointer mt-2 text-sm'>
+            <input type="radio" name="sortOption" checked={selected} 
+            onChange={()=>onChange(label)}/>
+            <span className='font-light select-none'>{label}</span>
+        </label>
+    )
+}
 
 const Rooms = () => {
 const navigate=useNavigate();
 const [openFilters,setOpenFilters]=useState(false);
 
-  return (
+{/*Opcije filterovanja*/}
+const roomTypes=[
+    "Single Bed",
+    "Double Bed",
+    "Luxury",
+    "Family Suite",
+];
 
+const priceRange=[
+    '0 to 500',
+    '500 to 1000',
+    '1000 to 2000',
+    '2000 to 3000',
+];
+
+const sortOptions=[
+    "Price Low to High",
+    "Price High to Low",
+    "Newest first"
+]
+
+  return (
     <div className='flex flex-col-reverse lg:flex-row
     items-start justify-between pt-28 md:pt-35 px-4 md:px-16
     lg:px-24 xl:px-32'>
       <div>
         <div className='flex flex-col items-start text-left'>
-            <h1 className='font-playfair text-4x1 md:text-[40px]'>Hotel Rooms</h1>
+            <h1 className='font-playfair text-4x1 text-[28px] md:text-[40px]'>Hotel Rooms</h1>
             <p className='text-sm md:text-base text-gray-500/90 mt-2 max-w-174'>Take advantage of our limited-time offers and special packages 
                 to enhance your stay and create unforgettable memories.
             </p>
@@ -66,8 +110,8 @@ const [openFilters,setOpenFilters]=useState(false);
             min-lg:border-b border-b border-gray-300 ${openFilters && "border-b"}`}>
             <p className='text-base font-medium text-gray-800'>FILTERS</p>
             <div className='text-xs cursor-pointer'>
-                <span onClick={()=>setOpenFilters(true)} className='lg:hidden'>
-                    {openFilters ? 'HIDE' : 'SHOW'}</span>
+                <span onClick={()=>setOpenFilters(!openFilters)} className='lg:hidden'>
+                    {openFilters ? 'HIDE' :  'SHOW'}</span>
                 <span className='hidden lg:block'>CLEAR</span>
             </div>
         </div>
@@ -75,7 +119,27 @@ const [openFilters,setOpenFilters]=useState(false);
         <div className={`${openFilters ? 'h-auto' : 'h-0 lg:h-auto'}
              overflow-hidden transition-all duration-700 ease-in-out`}>
                 <div className='px-5 pt-5'>
-                    <p className='font-medium text-gray-800 pb-2'>Popular filters</p>
+                    <p className='font-medium
+                     text-gray-800 pb-2'>Popular filters</p>
+                     {roomTypes.map((room,index)=>(
+                        <CheckBox key={index} label={room}/>
+                     ))}
+                </div>
+
+                <div className='px-5 pt-5'>
+                    <p className='font-medium
+                     text-gray-800 pb-2'>Price range</p>
+                     {priceRange.map((range,index)=>(
+                        <CheckBox key={index} label={`$ ${range}`}/>
+                     ))}
+                </div>
+
+                <div className='px-5 pt-5 pb-7'>
+                    <p className='font-medium
+                     text-gray-800 pb-2'>Sort by</p>
+                     {sortOptions.map((option,index)=>(
+                        <RadioBtn key={index} label={option}/>
+                     ))}
                 </div>
         </div>
 
