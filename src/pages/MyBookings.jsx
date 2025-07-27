@@ -63,7 +63,17 @@ const MyBookings = () => {
 
             </div>
             {/* Payment status */}
-            <div></div>
+            <div className='flex flex-col items-start justify-center pt-2'>
+              <div className='flex items-center gap-2 pb-2'>
+                <div className={`h-3 w-3 rounded-full ${booking.isPaid ? "bg-green-500" : "bg-red-500"}`}>
+                </div>
+                {!booking.isPaid && (
+                  <button className='px-4 py-1.5 ml-1 text-xs border border-gray-400
+                  rounded-full hover:bg-gray-50 transition-all cursor-pointer'>
+                    Pay now</button>
+                )}
+              </div>
+            </div>
           </div>
         ))}
       </div>
