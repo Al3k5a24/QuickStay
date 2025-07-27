@@ -80,7 +80,7 @@ const Navbar = () => {
                     //When user is not logged in, show Login button */}
                     {user ? (<UserButton>
                         <UserButton.MenuItems>
-                            <UserButton.Action label="My Bookings" labelIcon={<BookIcon/>} onClick={()=>navigate('/')}/>
+                            <UserButton.Action label="My Bookings" labelIcon={<BookIcon/>} onClick={()=>navigate('/my-bookings')}/>
                         </UserButton.MenuItems>
                     </UserButton>) : (
                     <button onClick={openSignIn} className={`px-8 py-2.5 rounded-full ml-4 transition-all duration-500 ${isScrolled ? "text-white bg-black" : "bg-white text-black"}`}>
