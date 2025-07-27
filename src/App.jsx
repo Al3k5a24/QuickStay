@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Rooms from './pages/Rooms';
 import RoomDetails from './pages/RoomDetails';
 import MyBookings from './pages/MyBookings';
+import HotelReg from './components/HotelReg';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
      {!isOwner && <Navbar/>}
+     <HotelReg/>
      <div className='min-h-[70vh]'>
       <Routes>
         <Route path='/' element={<Home/>}/>
