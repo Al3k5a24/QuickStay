@@ -7,7 +7,7 @@ const Header = () => {
     bg-no-repeat bg-cover bg-center h-screen'>
 
       <p className='bg-[#49B9FF]/50 px-5 rounded-full py-1 mt-20'>The ultimate hotel experience</p>
-      <h1 className='font-playfair mt-5 text-2xl md:text-5xl md:text-[56px] md:leading-[56px] font-bold md:font-extrabold max-w-xl '>Discover Your perfect getaway destinations</h1>
+      <h1 className='font-playfair mt-5 text-[34px] md:text-5xl md:text-[56px] md:leading-[56px] font-bold md:font-extrabold max-w-xl '>Discover Your perfect getaway destinations</h1>
       <p className='mt-3.5 text-sm md:text-base max-w-130'>Unparalleled luxury and comfort await at the world's most exclusive hotels
         and resorts. Explore our curated collection of the finest accommodations,
         where every detail is designed to provide an unforgettable experience.
