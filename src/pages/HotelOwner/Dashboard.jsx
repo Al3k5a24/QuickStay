@@ -26,7 +26,7 @@ const Dashboard = () => {
         </div>
 
         <div className='flex gap-4 my-8'>
-        {/* -- Total Bookings -- */}
+        {/* -- Total Revenue -- */}
         <div className='bg-primary/3 border border-primary/10 rounded flex p-4 pr-8'> 
         <img src={assets.totalRevenueIcon} alt="" 
         className='max-sm:hidden h-10'/>
@@ -38,6 +38,47 @@ const Dashboard = () => {
       </div>
       </div>
 
+      {/* -- Recent Bookings -- */}
+      <h2 className='text-xl text-blue-950/70 font-medium mb-5'>Recent Bookings</h2>
+      <div className='w-full max-w-3x1 text-left border border-gray-300 rounded-lg
+      max-h-80 overflow-y-scroll'>
+        <table className='w-full'>
+          <thead className='bg-gray-50'>
+            <tr>
+              <th className='py-3 px-4 text-center text-gray-800 font-medium'>Username</th>
+              <th className='py-3 px-4 text-center text-gray-800 font-medium'>Room name</th>
+              <th className='py-3 px-4 text-center text-gray-800 font-medium'>Total Amount</th>
+              <th className='py-3 px-4 text-center text-gray-800 font-medium'>Payment Status</th>
+            </tr>
+          </thead>
+
+          <tbody className='text-sm text-center'>
+            {dashboardData.bookings.map((item, index)=>(
+              <tr key={index}>
+                <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>
+                  {item.user.username}
+                </td>
+
+                <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>
+                  {item.room.roomType}
+                </td>
+
+                <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>
+                  $ {item.totalPrice}
+                </td>
+
+                <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>
+                  <button className={`py-1 px-3 text-xs rounded-full mx-auto
+                    ${item.isPaid ? 'bg-green-200 text-green-600' : 'bg-amber-200 text-yellow-600'}`}>
+                    {item.isPaid ? 'Completed' : 'Pending'}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+
+        </table>
+      </div>
     </div>
   )
 }
