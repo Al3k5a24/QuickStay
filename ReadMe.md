@@ -24,14 +24,6 @@ A modern and responsive hotel reservation website built using React and Tailwind
 
 ---
 
-## 🚀 Screenshot Preview
-
-<p align="center">
-  <img src="/images/demo-gif.gif" alt="QuickStay Demo GIF" width="800"/>
-</p>
-
----
-
 ## 🖼️ Screenshots
 
 _Add screenshots of your website interface here (e.g., hero section, hotel cards, booking form)._
